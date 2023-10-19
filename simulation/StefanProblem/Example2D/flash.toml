@@ -1,0 +1,113 @@
+# Toml configuration file
+[Parfile]
+
+  # Inverse of Reynolds Number
+  ins_invReynolds = 5e-3
+
+  # 1/Fr**2, Fr (Froude Number)
+  ins_gravY = 0.0
+  
+  # Gas density and viscosity scaled by liquid
+  mph_rhoGas = 1.2e-3
+  mph_muGas = 2.5e-4
+  mph_iPropSmear = 1.5
+  
+  # Gas thermal conductivity and specific heat
+  mph_thcoGas = 2e-1
+  mph_CpGas = 7e-1
+  
+  # Stefan number
+  mph_Stefan = 4e-3
+  
+  # Prandtl number
+  ht_Prandtl = 7.0
+  
+  # Inverse Weber Number
+  mph_invWeber = 2e-2
+  
+  # bubble radius
+  sim_initInterface = -0.25
+  
+  #       Grid dimensionality and geometry
+  geometry = "cartesian"
+  
+  #       Size of computational volume
+  xmin = -1
+  xmax = 1
+  ymin = -0.5
+  ymax = 0.5
+  zmin = -0.5
+  zmax = 0.5
+  
+  #       Boundary conditions
+  xl_boundary_type = "noslip_ins"
+  xr_boundary_type = "outflow_ins"
+  yl_boundary_type = "slip_ins"
+  yr_boundary_type = "slip_ins"
+  zl_boundary_type = "slip_ins"
+  zr_boundary_type = "slip_ins"
+  
+  #       Simulation (grid, time, I/O) parameters
+  run_comment = "Stefan Problem problem"
+  log_file = "INS_Stefan_Problem.log"
+  basenm = "INS_Stefan_Problem_"
+  restart = ".false."
+  nend = 10000000
+  tmax = 10
+  ins_cflFlg = 0
+  ins_cfl = 0.05
+  ins_sigma = 0.05
+  ins_dtSpec = 0.25e-4  # 0.025e-4  # 0.015625e-4 #1.0e-4
+  dtinit = 0.25e-4  # 0.025e-4  # 0.015625e-4 #1.0e-4
+  dtmax = 0.25e-4  # 0.025e-4  # 0.015625e-4 #1.0e-4
+  tstep_change_factor = 1.0
+  ins_pressureCorrect = ".false."
+  
+  plot_var_1 = "pres"
+  plot_var_2 = "velx"
+  plot_var_3 = "vely"
+  plot_var_4 = "dfun"
+  plot_var_5 = "temp"
+  plot_var_6 = "mflx"
+  
+  checkpointFileIntervalTime = 1.0
+  checkpointFileIntervalStep = 0
+  
+  plotFileIntervalTime = 1.0
+  plotFileIntervalStep = 0
+  
+  # AMR parameters
+  nblockx = 6  # 18  # 24 #12 #6  #3
+  nblocky = 3  # 36  # 48 #24 #12 #6
+  nblockz = 3  # 18  # 24 #12 #6  #3
+  nrefs = 10
+  
+  lrefine_min = 1
+  lrefine_max = 1
+  
+  # 	Runtime parameters for the Rising Bubble problem.
+  gr_pmRpDivergenceFree = 1
+  gr_pmRpNfieldDivf = 2
+  gr_pmRpConsvFluxes = ".true."
+  gr_pmRpConsvFluxDensities = ".false."
+  
+  # Settings for guard cell filling
+  gr_bcEnableApplyMixedGds = ".false."
+  convertToConsvdForMeshCalls = ".false."
+  convertToConsvdInMeshInterp = ".false."
+  enableMaskedGCFill = ".false."
+  
+  # 	Flux Conservation for AMR
+  flux_correct = ".true."
+  
+  # AMReX Poisson Solver Parameters
+  gr_amrexMG_composite_solve = ".true."
+  gr_amrexMG_Tol = 1e-12
+  gr_amrexMG_max_iter = 200
+  
+  # HYPRE Poisson Solver Parameters
+  gr_hyprePrintSolveInfo = ".false."
+  gr_hyprePcType = "HYPRE_AMG"
+  gr_hypreSolverType = "HYPRE_BICGSTAB"
+  gr_hypreRelTol = 1.0e-12
+  gr_hypreFloor = 1.0e-1

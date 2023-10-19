@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+
+import click
+
+
+@click.command(name="configure")
+@click.option("--site", "-s", type=str, help="Site Directory")
+def configure(site):
+    """
+    \b
+    Configuration command to generate config.sh
+    from user defined values
+    """
+    print("Generating configuration file")
+
+    with open("config.sh", "w") as config_file:
+
+        config_file.write("# This file is generated using configuration script\n")
+        config_file.write(f'SiteName="{site}"\n')
+
+if __name__ == "__main__":
+    configure()
