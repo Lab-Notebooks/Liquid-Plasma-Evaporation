@@ -1,4 +1,4 @@
-## Execution Environment for Multiphase Evaporation Tutorials
+## Execution Environment for Liquid-Plasma Evaporation Models
 
 For instructions on how to use the notebook pelase see the README for these repositories:
 - https://github.com/Lab-Notebooks/Outflow-Forcing-BubbleML
