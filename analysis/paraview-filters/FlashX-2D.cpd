@@ -1,0 +1,156 @@
+<CustomFilterDefinitions>
+  <CustomProxyDefinition name="Flash-X-2D" group="filters">
+    <CompoundSourceProxy id="20071" servers="1">
+      <Proxy group="filters" type="CellDataToPointData" id="19829" servers="1" compound_name="CellDatatoPointData1">
+        <Property name="CellDataArrays" id="19829.CellDataArrays" number_of_elements="6">
+          <Element index="0" value="dfun"/>
+          <Element index="1" value="dust"/>
+          <Element index="2" value="pres"/>
+          <Element index="3" value="temp"/>
+          <Element index="4" value="velx"/>
+          <Element index="5" value="vely"/>
+          <Domain name="array_list" id="19829.CellDataArrays.array_list">
+            <String text="dfun"/>
+            <String text="dust"/>
+            <String text="pres"/>
+            <String text="temp"/>
+            <String text="velx"/>
+            <String text="vely"/>
+          </Domain>
+        </Property>
+        <Property name="Input" id="19829.Input" number_of_elements="1">
+          <Proxy value="19580" output_port="0"/>
+          <Domain name="groups" id="19829.Input.groups"/>
+          <Domain name="input_array" id="19829.Input.input_array"/>
+          <Domain name="input_type" id="19829.Input.input_type"/>
+        </Property>
+        <Property name="PassCellData" id="19829.PassCellData" number_of_elements="1">
+          <Element index="0" value="0"/>
+          <Domain name="bool" id="19829.PassCellData.bool"/>
+        </Property>
+        <Property name="PieceInvariant" id="19829.PieceInvariant" number_of_elements="1">
+          <Element index="0" value="0"/>
+          <Domain name="bool" id="19829.PieceInvariant.bool"/>
+        </Property>
+        <Property name="ProcessAllArrays" id="19829.ProcessAllArrays" number_of_elements="1">
+          <Element index="0" value="1"/>
+          <Domain name="bool" id="19829.ProcessAllArrays.bool"/>
+        </Property>
+      </Proxy>
+      <Proxy group="filters" type="MergeBlocks" id="19580" servers="1" compound_name="MergeBlocks1">
+        <Property name="Input" id="19580.Input" number_of_elements="1">
+          <Proxy value="19348" output_port="0"/>
+          <Domain name="input_type" id="19580.Input.input_type"/>
+        </Property>
+        <Property name="MergePartitionsOnly" id="19580.MergePartitionsOnly" number_of_elements="1">
+          <Element index="0" value="0"/>
+          <Domain name="bool" id="19580.MergePartitionsOnly.bool"/>
+        </Property>
+        <Property name="MergePoints" id="19580.MergePoints" number_of_elements="1">
+          <Element index="0" value="1"/>
+          <Domain name="bool" id="19580.MergePoints.bool"/>
+        </Property>
+        <Property name="OutputDataSetType" id="19580.OutputDataSetType" number_of_elements="1">
+          <Element index="0" value="4"/>
+          <Domain name="enum" id="19580.OutputDataSetType.enum">
+            <Entry value="0" text="Polygonal Mesh"/>
+            <Entry value="4" text="Unstructured Grid"/>
+          </Domain>
+        </Property>
+        <Property name="Tolerance" id="19580.Tolerance" number_of_elements="1">
+          <Element index="0" value="0"/>
+        </Property>
+        <Property name="ToleranceIsAbsolute" id="19580.ToleranceIsAbsolute" number_of_elements="1">
+          <Element index="0" value="0"/>
+          <Domain name="bool" id="19580.ToleranceIsAbsolute.bool"/>
+        </Property>
+      </Proxy>
+      <Proxy group="filters" type="Cut" id="19348" servers="1" compound_name="Slice1">
+        <Property name="ContourValues" id="19348.ContourValues" number_of_elements="1">
+          <Element index="0" value="0"/>
+          <Domain name="bounds" id="19348.ContourValues.bounds"/>
+        </Property>
+        <Property name="CutFunction" id="19348.CutFunction" number_of_elements="1">
+          <Proxy value="19342"/>
+          <Domain name="proxy_list" id="19348.CutFunction.proxy_list">
+            <Proxy value="19343"/>
+            <Proxy value="19344"/>
+            <Proxy value="19342"/>
+            <Proxy value="19345"/>
+          </Domain>
+        </Property>
+        <Property name="HyperTreeGridImplicitFunction" id="19348.HyperTreeGridImplicitFunction" number_of_elements="1">
+          <Proxy value="19346"/>
+          <Domain name="proxy_list" id="19348.HyperTreeGridImplicitFunction.proxy_list">
+            <Proxy value="19347"/>
+            <Proxy value="19346"/>
+          </Domain>
+        </Property>
+        <Property name="Input" id="19348.Input" number_of_elements="1">
+          <Domain name="groups" id="19348.Input.groups"/>
+          <Domain name="input_type" id="19348.Input.input_type"/>
+        </Property>
+        <Property name="InputBounds" id="19348.InputBounds">
+          <Domain name="bounds" id="19348.InputBounds.bounds"/>
+        </Property>
+        <Property name="MergePoints" id="19348.MergePoints" number_of_elements="1">
+          <Element index="0" value="1"/>
+          <Domain name="bool" id="19348.MergePoints.bool"/>
+        </Property>
+        <Property name="PreserveInputCells" id="19348.PreserveInputCells" number_of_elements="1">
+          <Element index="0" value="0"/>
+          <Domain name="bool" id="19348.PreserveInputCells.bool"/>
+        </Property>
+        <Property name="SetDual" id="19348.SetDual" number_of_elements="1">
+          <Element index="0" value="0"/>
+          <Domain name="bool" id="19348.SetDual.bool"/>
+        </Property>
+        <Property name="Triangulate the slice" id="19348.Triangulate the slice" number_of_elements="1">
+          <Element index="0" value="1"/>
+          <Domain name="bool" id="19348.Triangulate the slice.bool"/>
+        </Property>
+      </Proxy>
+      <Proxy group="implicit_functions" type="Plane" id="19342" servers="21" compound_name="auto_19342">
+        <Property name="Normal" id="19342.Normal" number_of_elements="3">
+          <Element index="0" value="0"/>
+          <Element index="1" value="0"/>
+          <Element index="2" value="1"/>
+          <Domain name="range" id="19342.Normal.range"/>
+        </Property>
+        <Property name="Offset" id="19342.Offset" number_of_elements="1">
+          <Element index="0" value="0"/>
+        </Property>
+        <Property name="Origin" id="19342.Origin" number_of_elements="3">
+          <Element index="0" value="0"/>
+          <Element index="1" value="8"/>
+          <Element index="2" value="4.999999987376214e-7"/>
+          <Domain name="range" id="19342.Origin.range"/>
+        </Property>
+      </Proxy>
+      <Proxy group="implicit_functions" type="Plane" id="19346" servers="21" compound_name="auto_19346">
+        <Property name="Normal" id="19346.Normal" number_of_elements="3">
+          <Element index="0" value="1"/>
+          <Element index="1" value="0"/>
+          <Element index="2" value="0"/>
+          <Domain name="range" id="19346.Normal.range"/>
+        </Property>
+        <Property name="Offset" id="19346.Offset" number_of_elements="1">
+          <Element index="0" value="0"/>
+        </Property>
+        <Property name="Origin" id="19346.Origin" number_of_elements="3">
+          <Element index="0" value="0"/>
+          <Element index="1" value="8"/>
+          <Element index="2" value="4.999999987376214e-7"/>
+          <Domain name="range" id="19346.Origin.range"/>
+        </Property>
+      </Proxy>
+      <ExposedProperties>
+        <Property name="Input" proxy_name="Slice1" exposed_name="Input"/>
+      </ExposedProperties>
+      <OutputPort name="Output" proxy="CellDatatoPointData1" port_index="0"/>
+      <Hints>
+        <ShowInMenu/>
+      </Hints>
+    </CompoundSourceProxy>
+  </CustomProxyDefinition>
+</CustomFilterDefinitions>
